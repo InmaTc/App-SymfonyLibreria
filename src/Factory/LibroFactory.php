@@ -37,7 +37,7 @@ final class LibroFactory extends ModelFactory
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
             'titulo' => self::faker()->text(50),
-            'anioPublicacion' => self::faker()->dateTimeBetween('-100years'),
+            'anioPublicacion' => self::faker()->numberBetween(1800,2010),
             'isbn' => self::faker()->isbn10(),
             'sinopsis' => self::faker()->text(),
             'precioCompra' => self::faker()->numberBetween(400,8000),
