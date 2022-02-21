@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table>
+        <tr>
+            <th>Título</th>
+        </tr>
+        {% for libro in libros %}
+            <tr>
+                <td>{{ libro.titulo }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ path('editorial_libros') }}">Volver</a>
+{% endblock %}

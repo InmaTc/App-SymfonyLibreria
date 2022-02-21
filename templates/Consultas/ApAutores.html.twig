@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de nacimiento</th>
+        </tr>
+        {% for autor in autores %}
+            <tr>
+                <td>{{ autor.apellidos }}, {{ autor.nombre }}</td>
+                <td>{{ autor.fechaNacimiento | date("d/m/Y") }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ path('libro_ampliado') }}">Volver</a>
+{% endblock %}

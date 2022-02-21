@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Tarea 5{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <style>
+             table {
+                border-collapse: collapse;
+            }
+
+             th, td {
+                border: 3px solid black;
+                padding: 0.5em 0.25em;
+            }
+        </style>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

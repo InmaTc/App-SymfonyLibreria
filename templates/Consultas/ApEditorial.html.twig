@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Dirección postal</th>
+            <th>Total libros</th>
+        </tr>
+        {% for elemento in elementos %}
+            <tr>
+                {% set url = path('libros_editorial', { 'id': elemento.editorial.id })  %}
+                <td><a href="{{ url }}">{{ elemento.editorial.nombre }}</a></td>
+                <td>{{ elemento.editorial.direccionPostal }}</td>
+                <td>{{ elemento.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

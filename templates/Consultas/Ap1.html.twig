@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Editorial</th>
+            <th>Año Publicación</th>
+            <th>Sinopsis</th>
+        </tr>
+        {% for libro in libros %}
+            <tr>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.editorial.nombre }}</td>
+                <td>{{ libro.anioPublicacion }}</td>
+                <td>{{ libro.sinopsis }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
