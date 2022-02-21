@@ -36,10 +36,12 @@ final class SocioFactory extends ModelFactory
     {
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
-            'nombre' => self::faker()->text(),
-            'apellidos' => self::faker()->text(),
+            'nombre' => self::faker()->firstName(),
+            'apellidos' => self::faker()->lastName() . ' ' . self::faker()->lastName(),
             'estudiante' => self::faker()->boolean(),
             'docente' => self::faker()->boolean(),
+            'dni' => self::faker()->dni(),
+            'telefono' => self::faker()->boolean(80) ? self::faker()->mobileNumber() : null,
         ];
     }
 
