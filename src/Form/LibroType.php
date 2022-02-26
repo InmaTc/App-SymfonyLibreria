@@ -23,7 +23,7 @@ class LibroType extends AbstractType
             ->add('titulo', TextType::class, [
                 'label' => 'Título'
             ])
-            ->add('editorial', TextType::class, [
+            ->add('editorial', EntityType::class, [
                 'label' => 'Editorial del libro',
                 'class' => Editorial::class
             ])
