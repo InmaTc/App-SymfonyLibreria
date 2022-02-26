@@ -81,9 +81,17 @@ class Libro
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitulo();
+    }
+
+    /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -91,7 +99,7 @@ class Libro
     /**
      * @return Editorial
      */
-    public function getEditorial(): Editorial
+    public function getEditorial(): ?Editorial
     {
         return $this->editorial;
     }
@@ -109,7 +117,7 @@ class Libro
     /**
      * @return string
      */
-    public function getTitulo(): string
+    public function getTitulo(): ?string
     {
         return $this->titulo;
     }
@@ -145,7 +153,7 @@ class Libro
     /**
      * @return int
      */
-    public function getAnioPublicacion(): int
+    public function getAnioPublicacion(): ?int
     {
         return $this->anioPublicacion;
     }
@@ -163,7 +171,7 @@ class Libro
     /**
      * @return string
      */
-    public function getIsbn(): string
+    public function getIsbn(): ?string
     {
         return $this->isbn;
     }
@@ -199,7 +207,7 @@ class Libro
     /**
      * @return string
      */
-    public function getSinopsis(): string
+    public function getSinopsis(): ?string
     {
         return $this->sinopsis;
     }
@@ -216,7 +224,7 @@ class Libro
     /**
      * @return int
      */
-    public function getPrecioCompra(): int
+    public function getPrecioCompra(): ?int
     {
         return $this->precioCompra;
     }

@@ -60,7 +60,10 @@ class Autor
         $this->libros = new ArrayCollection();
     }
 
-    public function __toString()
+    /**
+     * @return string
+     */
+    public function __toString() : string
     {
         return $this->getNombre() . ' ' . $this->getApellidos();
     }

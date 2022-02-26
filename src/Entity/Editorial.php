@@ -44,11 +44,17 @@ class Editorial
      */
     private $libros;
 
-
-
     public function __construct()
     {
         $this->libros = new ArrayCollection();
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 
     /**
