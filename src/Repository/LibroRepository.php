@@ -14,6 +14,25 @@ class LibroRepository extends ServiceEntityRepository
         parent::__construct($registry, Libro::class);
     }
 
+    public function create() : Libro
+    {
+        $libro = new Libro();
+        $this->getEntityManager()->persist($libro);
+
+        return $libro;
+    }
+
+    public function save() : void
+    {
+        $this->getEntityManager()->flush();
+    }
+
+    public function delete(Libro $libro) : void
+    {
+        $this->getEntityManager()->remove($libro);
+        $this->save();
+    }
+
     public function findLibrosOrdenados()
     {
         return $this
