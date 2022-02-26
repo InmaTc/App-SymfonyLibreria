@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modificar libro{% endblock %}
+
+{% block body %}
+    {% if libro.id %}
+        <h1>Modificando a {{ libro }}</h1>
+    {% else %}
+        <h1>Nuevo libro</h1>
+    {% endif %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-success">
+        {% if autor.id %}
+            <i class="fa fa-check"></i> Guardar cambios
+        {% else %}
+            <i class="fa fa-plus"></i> Crear nuevo libro
+        {% endif %}
+    </button>
+    <a href="{{ path('libro_listar') }}" class="btn btn-info"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+    {{ form_end(form) }}
+
+{% endblock %}
