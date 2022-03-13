@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity
@@ -253,7 +254,14 @@ class Socio implements UserInterface
 
     public function getRoles()
     {
-        $roles = ["ROLE_USER"];
+        $roles = [
+            'ROLE_USER'
+        ];
+
+        if ($this->isDocente()) {
+            $roles[] = 'ROLE_DOCENTE';
+        }
+
         return $roles;
     }
 
