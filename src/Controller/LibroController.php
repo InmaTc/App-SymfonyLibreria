@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Libro;
 use App\Form\LibroType;
 use App\Repository\LibroRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,7 @@ class LibroController extends AbstractController
 {
     /**
      * @Route("/libro/listar", name="libro_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function listar(LibroRepository $librosRepository): Response
     {
@@ -26,6 +28,7 @@ class LibroController extends AbstractController
 
     /**
      * @Route("/libro/nuevo", name="libro_nuevo")
+     * @Security("is_granted('ROLE_DOCENTE')")
      */
     public function nuevo(Request $request, LibroRepository $libroRepository): Response
     {
@@ -36,6 +39,7 @@ class LibroController extends AbstractController
 
     /**
      * @Route("/libro/modificar/{id}", name="libro_modificar")
+     * @Security("is_granted('ROLE_DOCENTE')")
      */
     public function modificar(Request $request, LibroRepository $libroRepository, Libro $libro): Response
     {
@@ -59,6 +63,7 @@ class LibroController extends AbstractController
 
     /**
      * @Route("/libro/eliminar/{id}", name="libro_eliminar")
+     * @Security("is_granted('ROLE_DOCENTE')")
      */
     public function eliminar(Request $request, LibroRepository $libroRepository, Libro $libro): Response
     {
