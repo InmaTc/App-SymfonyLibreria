@@ -1,14 +1,24 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        users_in_memory: { memory: null }
+        base_de_datos:
+            entity:
+                class: 'App\Entity\Socio'
+                property: 'usuario'
+    encoders:
+        App\Entity\Socio: bcrypt
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: lazy
-            provider: users_in_memory
+            provider: base_de_datos
+            form_login:
+                login_path: seguridad_login
+                check_path: seguridad_login
+            logout:
+                path: seguridad_logout
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
