@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Entity\Socio;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 
@@ -25,10 +26,14 @@ use Zenstruck\Foundry\Proxy;
  */
 final class SocioFactory extends ModelFactory
 {
-    public function __construct()
+    /**
+     * @var UserPasswordEncoderInterface
+     */
+
+    public function __construct(UserPasswordEncoderInterface $userPasswordEncoder)
     {
         parent::__construct();
-
+        $this->userPasswordEncoder = $userPasswordEncoder;
         // TODO inject services if required (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services)
     }
 
@@ -42,6 +47,8 @@ final class SocioFactory extends ModelFactory
             'docente' => self::faker()->boolean(),
             'dni' => self::faker()->dni(),
             'telefono' => self::faker()->boolean(80) ? self::faker()->mobileNumber() : null,
+            'usuario' => self::faker()->unique()->userName(),
+            'clave' => $this->userPasswordEncoder->encodePassword(new Socio(), 'oretania')
         ];
     }
 
