@@ -55,6 +55,18 @@ class Socio
     private $telefono;
 
     /**
+     * @ORM\Column(type="string", unique=true)
+     * @var string
+     */
+    private $usuario;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $clave;
+
+    /**
      * @ORM\OneToMany(targetEntity="Libro", mappedBy="socio")
      * @var Libro[]|Collection
      */
@@ -181,6 +193,42 @@ class Socio
     public function setTelefono(?string $telefono): Socio
     {
         $this->telefono = $telefono;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsuario(): ?string
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * @param string $usuario
+     * @return Socio
+     */
+    public function setUsuario(string $usuario): Socio
+    {
+        $this->usuario = $usuario;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClave(): ?string
+    {
+        return $this->clave;
+    }
+
+    /**
+     * @param string $clave
+     * @return Socio
+     */
+    public function setClave(string $clave): Socio
+    {
+        $this->clave = $clave;
         return $this;
     }
 
