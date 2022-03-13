@@ -253,7 +253,8 @@ class Socio implements UserInterface
 
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        $roles = ["ROLE_USER"];
+        return $roles;
     }
 
     public function getPassword()
